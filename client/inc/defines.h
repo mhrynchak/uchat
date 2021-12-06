@@ -1,5 +1,7 @@
 #pragma once
 
+#define GTK_STYLE_CLASS_TOOLTIP "tooltip"
+
 #define MAX_CLIENTS 10
 #define BUF_SIZE 2048
 #define BACKLOG 10
@@ -8,17 +10,17 @@
 /*
  * Icons and images paths
  */
-#define IMGS_PATH "../src/gui/resources/"
-#define STICKER_PATH IMGS_PATH"stickers/"
-#define GUI_PATH "../src/gui/gui.glade"
+#define IMGS_PATH "../resources/icons/"
+#define STICKER_PATH IMGS_PATH"../stickers/"
+#define GUI_PATH "../resources/gui.glade"
 #define IMG_EYE IMGS_PATH"eye.png"
 #define IMG_CLOSEDEYE IMGS_PATH"closed-eye.png"
 #define CACHE "client/cache"
 
 
 /* Themes */
-#define DARK_THEME "../src/gui/dark_theme.css"
-#define LIGHT_THEME "../src/gui/light_theme.css"
+#define DARK_THEME "../resources/dark_theme.css"
+#define LIGHT_THEME "../resources/light_theme.css"
 #define THEME_FILE "set_theme"
 
 /*
@@ -31,14 +33,40 @@
 #define ERRMSG_USEREXIST "User already exist"
 #define ERRMSG_CLIEXIST "User already authorized"
 
+// /*
+//  * GtkListBox of room lists
+//  */
+#define LOCAL_ROOMS "listbox_rooms"
+#define GLOBAL_ROOMS "listbox_global_rooms"
 
-/* ERROR_TYPE
- * ----------
- * All types of errors in protocol
+/*
+ * Keybord
  */
-typedef enum e_error_type {
-    ER_AUTH_DATA = 0,
-    ER_USER_EXST,
-    ER_CLI_EXST,
-    ER_COUNT
-}            t_error_type;
+#define ENTER_KEY (gint)65293
+#define SHIFT_KEY (gint)65505
+/*
+ * Controll-headerbar
+ */
+#define ROOM_CTRL 0
+#define MSG_CTRL 1
+#define BUF_MSGS 30
+
+
+/*
+ * Formatting characters
+ */
+#define VM_FT_SCRATCH "~~"
+#define VM_FT_BOLD "**"
+#define VM_FT_IMPORTANT "``"
+#define VM_FT_ITALIC "##"
+#define VM_FT_UNDER "__"
+
+/*
+ * Formatting spans
+ */
+#define VM_OP_SCRATCH "<span strikethrough=\"true\">%s</span>"
+#define VM_OP_BOLD "<span font_weight=\"bold\">%s</span>"
+#define VM_OP_IMPORTANT "<span background=\"#FF698C7F\">%s</span>"
+#define VM_OP_ITALIC "<span font_style=\"italic\">%s</span>"
+#define VM_OP_UNDER "<span underline=\"single\">%s</span>"
+#define VM_CLOSE_SPAN "</span>"

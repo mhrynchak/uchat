@@ -1,9 +1,11 @@
 #include "client.h"
 
 static void init_fields(t_chat *chat, gint argc, char **argv) {
-    chat->auth_token = NULL;
+    chat->auth_token = "";
     chat->valid = TRUE;
-    chat->login = NULL;
+    chat->login = "";
+    chat->desc = "";
+    chat->name = "";
     chat->builder = NULL;
     chat->data = NULL;
     chat->upl_old_msgs = FALSE;

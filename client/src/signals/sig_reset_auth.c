@@ -1,7 +1,7 @@
 #include "client.h"
 
 void sig_reset_auth(GtkNotebook *note, GtkWidget *page,
-                   guint page_num, GtkBuilder *builder) {
+                   gint page_num, GtkBuilder *builder) {
     GObject *login = gtk_builder_get_object(builder, "entry_login_password");
     GObject *signup = gtk_builder_get_object(builder, "entry_signup_password");
     GObject *confirm = gtk_builder_get_object(builder, "entry_signup_confirm");

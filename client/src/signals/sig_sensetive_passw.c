@@ -1,7 +1,7 @@
 #include "client.h"
 
-void sig_sensetive_confirm(GtkEntryBuffer *buff, guint pos, gchar *chars,
-                              guint n_chars, GtkEntry *entry) {
+void sig_sensetive_confirm(GtkEntryBuffer *buff, gint pos, gchar *chars,
+                              gint n_chars, GtkEntry *entry) {
     char *buffer = (char*)gtk_entry_buffer_get_text(buff);
 
     if (strlen(buffer))
@@ -12,8 +12,8 @@ void sig_sensetive_confirm(GtkEntryBuffer *buff, guint pos, gchar *chars,
 }
                                           
 
-void sig_unsensetive_confirm(GtkEntryBuffer *buff, guint pos,
-                                guint n_chars, GtkEntry *entry) {
+void sig_unsensetive_confirm(GtkEntryBuffer *buff, gint pos,
+                                gint n_chars, GtkEntry *entry) {
     char *buffer = (char*)gtk_entry_buffer_get_text(buff);
 
     if (strlen(buffer) == 0)

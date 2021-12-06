@@ -21,7 +21,6 @@ void receiver(GObject *source_object, GAsyncResult *res, gpointer user_data) {
     response = g_data_input_stream_read_line_finish(in, res, &count, NULL);
     
     if (response) {
-        fprintf(stdout, "response: %s\n", cJSON_Print(cJSON_Parse(response))); //del
         json_manager(response, chat);
     }
 

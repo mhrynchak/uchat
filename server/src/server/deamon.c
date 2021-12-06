@@ -7,7 +7,6 @@ void uchat_daemon(void) {
 
     process_id = fork();
     if (process_id < 0) {
-        fprintf(stderr,"fork failed!\n");
         exit(1);
     }
     if (process_id > 0) {
@@ -17,10 +16,6 @@ void uchat_daemon(void) {
     }
     
     umask(0);
-    // The purpose of the umask is to allow users to influence the permissions 
-    // given to newly created files and directories. Daemons should not allow 
-    // themselves to be affected by this setting, because what was appropriate 
-    // for the user will not necessarily be suitable for the daemon.
     sid = setsid();
     if (sid < 0) {
         exit(1);

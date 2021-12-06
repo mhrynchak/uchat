@@ -1,0 +1,44 @@
+/*  Dark theme */
+main            { background-color:#242424; }
+accent block    { background-color:#8774e1; }
+entry           { background-color:#1b1b1b; }
+
+main    { color:#919dc1; }
+accent  { color:#f5f5f5; }
+
+/*  Light theme */
+main            { background-color:#d6f0ff; }
+accent block    { background-color:#157ce1; }
+hover zone      { background-color:#1c8bfa; }
+box             { background-color:#f5f5f5; }
+entry           { background-color:#ffffff; }
+
+unactive{ color:#919dc1; }
+entry   { color:#53565a; }
+accent  { color:#ffffff; }
+accent2 { color:#157ce1; }
+
+
+/* General settings */
+/* Action area all dialog boxes */
+/* Auth dialog styles */
+/* Title bar main window chat */
+/* Box-rooms styles*/
+/* Class for room with new messages */
+/* Main area messages: list messg, scrollbar */
+/* Send messages area styles */
+/* Header messages area styles */
+/* Stickers box */
+/* Messages area styles */
+/* Message styling */
+/* box edit msg stile */
+
+/* Box filechooser styles */
+/* Profile settings Dialog window styles */
+/* Room info Dialog window styles */
+/* Members list styles */
+
+/* User info styles */
+
+/* Room settings Dialog window styles */
+/* Dialog join to room, ban, clear history styles */

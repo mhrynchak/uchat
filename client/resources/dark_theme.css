@@ -1,0 +1,802 @@
+/* General settings */
+@define-color placeholder_text_color #919dc1;
+
+* {
+    font-family: "Gill Sans", sans-serif;
+    transition: all .07s ease-out;
+    outline-color: transparent;
+    outline-style: double;
+    background-color: transparent;
+}
+
+button, .input, .titlebar, button image, entry, notebook {
+    -gtk-icon-effect: none;
+    -gtk-icon-shadow: none;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+} 
+
+
+.dialog_auth, .dialog_addroom, .wnd-room-info, .dialog_confirmation, .wnd-room-settings {
+    background: #242424;
+    background-color: #242424;
+    border-radius: 0 0 15px 15px;
+}
+
+tooltip {
+    background:#242424;
+    padding: 5px 5px; /* Поля */
+    border: 1px solid #8774e1; /* Параметры рамки */
+}
+
+headerbar {
+    min-height: 40px;
+    background: #1b1b1b;
+}
+
+headerbar box label {
+	font-size: 20px;
+	font-weight: 500;
+    background-color: transparent;
+	color: #919dc1; 
+}
+
+headerbar button:hover {
+    background-color: #242424;
+    border-radius: 100%;
+}
+
+
+headerbar button {
+    background-color: #1b1b1b;
+    border-radius: 100%;
+}
+
+
+dialog headerbar {
+    background: #1b1b1b;
+}
+
+window headerbar {
+    background: #1b1b1b;
+}
+
+button {
+    background-image: none;
+}
+button label {
+    box-shadow: none;
+}
+
+/* Action area all dialog boxes */
+
+.dialog-action-area {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+.dialog-action-area button {
+    background-color: #8774e1;
+    background: linear-gradient(180deg, #919dc1 0%,  #8774e1 100%);
+    box-shadow: 1px 1px 1px #8774e1;
+    padding: 5px 20px;
+    border-radius: 15px;
+    color:#1b1b1b;
+    font-size: 14px;
+    font-weight: 600;
+}
+.dialog-action-area button:first-child {
+    margin-right: 5px;
+}
+.dialog-action-area button:last-child {
+    margin-left: 5px;
+}
+.dialog-action-area button:hover {
+    background: #8774e1;
+    box-shadow: 5px 5px 5px #1b1b1b;
+}
+
+
+/* Auth dialog styles */
+
+.dialog_auth entry, .wnd_main entry, .wnd_main textview, .dialog_addroom entry {
+    caret-color:#919dc1;
+    color:#939ab1;
+	box-shadow: none;
+    font-size: 15px;
+    font-weight: 400;
+	border-radius: 15px;
+    padding: 1px 10px;
+    background:#1b1b1b;
+}
+
+.notebook_item {
+    background: #242424;
+}
+.notebook_item label {
+    font-weight: 400;
+    font-size: 15px;
+    background: #242424;
+    color: #8774e1;
+}
+.dialog_notebook {
+    background: #242424;
+}
+.dialog_notebook header, stack, tabs {
+	padding: 0;
+    margin: 0;
+    border: none;
+    background: #242424;
+}
+
+.dialog_notebook tab {
+    background: #242424;
+    padding-top: 15px;
+    padding-bottom: 8px;
+    margin-bottom: 30px;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.dialog_notebook tab label {
+    font-weight: 600;
+    font-size: 20px;
+    background: #242424;
+    color: #919dc1;
+}
+.dialog_notebook tab:hover label {
+    text-shadow: 3px 3px 3px #1b1b1b;
+    color: rgba(145,157,193,.8);
+    background: #242424;
+}
+
+.dialog_notebook tab:checked {
+    box-shadow: none;
+    border: none;
+	box-shadow: 0 -3px #8774e1 inset;
+}
+.dialog_notebook tab:checked label {
+    color: #8774e1;
+    border: none;
+}
+
+/* Title bar main window chat */
+.box_titlebar {
+    box-shadow: 0px -10px 10px -5px #8674e8 inset;
+}
+.box_titlebar button {
+    background-color: transparent;
+}
+.box_titlebar button:hover {
+    background-color: #1b1b1b;
+}
+
+/* Box-rooms styles*/
+
+.box-rooms {
+	border-right: 1px solid #8774e1;
+    padding: 17px 30px 0 30px;
+}
+.box-rooms #sentry_rooms{
+    margin-bottom: 17px;
+}
+
+.rooms-list row, .rooms-list row label {
+    color: #919dc1;
+    outline: none;
+}
+.rooms-list label {
+	background-color: #242424;
+    padding: 25px 20px;
+    border-color: transparent;
+    border-radius: 8px;
+    margin: 5px 25px;
+    font-size: 15px;
+}
+.rooms-list row:hover {
+    background-color: transparent;
+}
+.rooms-list row:hover label {
+    background-color:#1b1b1b;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.rooms-list row:selected label {
+    color: #f5f5f5;
+	background-color: #8774e1;
+    border-left: 3px solid #1b1b1b;
+    border-right: 3px solid #1b1b1b;
+    margin-left: 18px;
+    margin-right: 18px;
+}
+.rooms-list row:selected:hover label {
+    background-color:#1b1b1b;
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+/* Class for room with new messages */
+.rooms-list row .has-messages {
+    border-left: 3px solid #8774e1;
+    border-right: 3px solid #8774e1;
+	animation-name: pulse;
+	animation-duration: .8s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinity;
+}
+.rooms-list row:hover .has-messages {
+	animation: none;
+}
+@keyframes pulse {
+    0% {margin-left: 25px; margin-right: 25px;}
+    75% {margin-left: 21px; margin-right: 21px;}
+    100% {margin-left: 25px; margin-right: 25px;}
+}
+
+/* Main area messages: list messg, scrollbar */
+
+.wnd_main {
+    background-color:#242424;
+}
+
+.wnd_main list {
+    color: #919dc1;
+}
+
+.wnd_main srcollbar.hovering slider {
+    background-color: #8774e1;
+}
+.wnd_main scrollbar slider {
+    border-color: transparent;
+    background-color: rgba(135, 116, 225, 0.8);
+}
+.wnd_main .hovering {
+    background-color: #242424;
+	border: none;
+}
+.wnd_main .dragging slider {
+	background-color: #8774e1;
+}
+
+/* Send messages area styles */
+
+.box_msg_send {
+	margin: 0 25px 5px 25px;
+    background-color: transparent;
+    border-top: 1px solid #8774e1;
+	padding: 15px 33px 15px 25px;
+}
+.box_msg_send textview, .box_msg_send textview text {
+    background-color: #1b1b1b;
+    color: #919dc1;
+    caret-color:#919dc1;
+    font-weight: 300;
+    font-size: 15px;
+}
+.box_msg_send scrolledwindow {
+    border-style: none;
+}
+
+.btn_stickers, .btn_confirm_changes {
+    background-color: #1b1b1b;
+    border-radius: 0 15px 15px 0;
+}
+
+.btns-msg-box:hover {
+	background-color: #1b1b1b;
+	border-radius: 100px;
+	padding: 10px;
+}
+
+.button_send_message {
+	background-color: transparent;
+	border-radius: 100px;
+	padding: 10px;
+}
+.button_send_message:hover, .btn_confirm_changes:hover{
+	background-color: #1b1b1b;
+	border-radius: 100px;
+	padding: 10px;
+}
+
+
+/* Header messages area styles */
+.boxroom_header-in {
+    padding: 11px 25px 11px 25px;
+}
+
+.boxroom_header-in label {
+    color: #f5f5f5; 
+    font-size: 18px;
+	font-weight: 500;
+}
+.boxroom_header-in button:hover {
+    background-color: #1b1b1b;
+}
+
+.box_msg_ctrl {
+    padding: 11px 25px 11px 25px;
+}
+.box_msg_ctrl label {
+    color: #f5f5f5; 
+    font-size: 18px;
+	font-weight: 500;
+}
+.box_msg_ctrl button:hover {
+    background-color: #1b1b1b;
+}
+
+
+/* Stickers box */
+
+.box_stickers_header {
+	padding: 15px 25px 15px 25px;
+	border-bottom: 1px solid #8774e1;
+	background-color: transparent;
+}
+.box_stickers_header label {
+    color: whitesmoke;
+    font-size: 18px;
+	font-weight: 500;
+}
+.box_stickers_header button:hover {
+	font-weight: 300;
+    font-size: 12px;
+    background-color: #1b1b1b;
+}
+
+.box_stickers_area {
+    border-left: 1px solid #8774e1;
+}
+.box_stickers_area scrolledwindow {
+    border-style: none;
+}
+.box_stickers_area grid {
+    padding: 10px;
+}
+.box_stickers_area grid button:hover {
+    opacity: .8;
+    background-color: #1b1b1b;
+}
+
+/* Messages area styles */
+
+.stack_messages {
+    background-color: #1b1b1b;
+    border-style: none;
+}
+.stack_messages listbox {
+    border-style: none;
+}
+
+.stack_messages > label {
+    color: whitesmoke;
+}
+.stack_messages list row {
+    padding: 0;
+    border-style: none;
+}
+.stack_messages list row:selected {
+	background-color: transparent;
+}
+.stack_messages list row:hover {
+	background-color: #242424;
+    border-radius: 8px;
+}
+
+.main_msg_box {
+	padding: 0 180px 0 0;
+}
+.main_own_msg_box {
+	padding: 0 0 0 180px;
+}
+.stack_messages list {
+	margin: 7px 38px 14px 38px;
+}
+
+/* Message styling */
+
+.sender_login {
+    color: #f5f5f5;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.stack_messages list .box_msg_info > label,
+.stack_messages list .box_own_msg_info > label,
+.box_own_file_info .file-button, 
+.box_file_info .file-button {
+	padding: 10px 15px;
+	margin-top: 7px;
+	margin-left: 7px; 
+	font-weight: 300;
+	font-size: 14px;
+	color:  white;
+}
+.stack_messages list .box_msg_info > label, .box_file_info .file-button {
+    background-color: #242424;
+    border-radius: 0 15px 0px 15px;
+}
+.stack_messages list .box_own_msg_info > label, .box_own_file_info .file-button {
+	background-color: #8774e1;
+	border-radius: 15px 15px 15px 0;
+}
+.stack_messages list .box_msg_info > box > label,
+.stack_messages list .box_sticker_info > box > label,
+.stack_messages list .box_own_msg_info > box > label,
+.stack_messages list .box_own_sticker_info > box > label,
+.box_own_file_info > box:first-child > label,
+.box_file_info > box:last-child > label {
+    font-size: 13px;
+    font-weight: 300;
+    color: #919dc1;
+}
+.stack_messages list .box_msg_info >  box ,
+.stack_messages list .box_sticker_info > box,
+.box_file_info > box:last-child  {
+    margin-left: 10px;
+}
+.box_own_msg_info > box, .box_own_file_info > box:first-child {
+    margin-right: 7px;
+}
+.stack_messages list .box_own_sticker_info > box {
+	margin-right: 10px;
+}
+.stack_messages list .box_own_sticker_info > image,
+.stack_messages list .box_sticker_info > image {
+    margin-top: 7px;
+    border-color: transparent;
+}
+.stack_messages list row:selected .box_msg_info > label,
+.stack_messages list row:selected .box_own_msg_info > label {
+    background-color: black;
+    color: #8774e1;
+}
+.stack_messages list row:selected .box_own_sticker_info > image {
+    border-right: 8px solid #8774e1;
+    opacity: .8;
+    border-radius: 5px;
+    padding-right: 7px;
+}
+.stack_messages list row:selected .box_sticker_info > image {
+    border-left: 8px solid #8774e1;
+    opacity: .8;
+    border-radius: 5px;
+    padding-left: 7px;
+}
+.box_file_info > box > box, .box_own_file_info > box > box,
+.stack_messages list .box_msg_info > box > box,
+.stack_messages list .box_sticker_info > box > box,
+.stack_messages list .box_own_msg_info > box > box,
+.stack_messages list .box_own_sticker_info > box > box {
+	font-size: 13px;
+	color: #919dc1;
+}
+
+/* box edit msg stile */
+
+#box_edit_msg {
+	margin: 15px 25px 10px 25px;
+}
+#box_edit_msg label:first-child {
+	color: #919dc1;
+	font-weight: 400;
+	font-size: 15px;
+}
+#box_edit_msg label:last-child {
+	color: #f5f5f5; 
+	font-weight: 500;
+	font-size: 16px;
+    margin-top: 10px;
+}
+#box_edit_msg box.vertical {
+	margin-left: 10px;
+}
+#box_edit_msg button:hover {
+    background-color: #1b1b1b;
+    border-radius: 8px;
+}
+
+
+/* Box filechooser styles */
+
+.file_chooser {
+    background-color: #919dc1;
+}
+.file_chooser box:last-child{
+    background-color: #242424;
+}
+.file_chooser box:first-child{
+    background-color: #1b1b1b;
+}
+
+.file_chooser box:first-child box:nth-child(1) {
+    background-color: #8774e1;
+}
+
+.file_chooser srcollbar.hovering slider {
+    background-color: #8774e1;
+}
+.file_chooser scrollbar slider {
+    border-color: transparent;
+    background-color: rgba(135, 116, 225, 0.8);
+}
+.file_chooser .hovering {
+    background-color: #242424;
+	border: none;
+}
+.file_chooser .dragging slider {
+	background-color: #8774e1;
+}
+
+/* Profile settings Dialog window styles */
+
+.profile-settings-wnd {
+    background-color: #242424;
+}
+
+#dialog_profile_prefs {
+    color: #f5f5f5;
+    font-weight: 500;
+    margin: 10px 45px 0 45px;
+    background-color: #242424;
+}
+#dialog_profile_prefs entry {  
+    background-color: #1b1b1b;
+    color:#919dc1;
+    caret-color: #f5f5f5;
+}
+#dialog_profile_prefs > box:first-child label:first-child {
+	font-size: 16px;
+	color: #919dc1;
+	font-weight: 400;
+}
+#dialog_profile_prefs > box:first-child label:last-child  {
+	font-size: 16px;
+}
+#dialog_profile_prefs > box:first-child box:last-child > label {
+	margin: 10px 0 7px;
+}
+#dialog_profile_prefs > box:first-child box:last-child > button {
+    margin-top: 6px;
+}
+#dialog_profile_prefs .dialog-action-area {
+    margin-top: 25px;
+}
+#dialog_profile_prefs textview {  
+    background-color: #1b1b1b;
+}
+#dialog_profile_prefs textview text {
+    font-size: 16px;
+    padding-top: 8px;
+    color:#919dc1;
+    caret-color: #f5f5f5;
+    font-weight: 400;
+}
+
+
+/* Room info Dialog window styles */
+
+.box-room-info {
+    color: #f5f5f5;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 22px 45px 45px 45px;
+}
+.box-room-info box label:first-child {
+	font-size: 16px;
+	color: #919dc1;
+	font-weight: 400;
+}
+
+.box-room-info > box:nth-child(3) label,
+.box-room-info > box:nth-child(4) > label {
+	margin-bottom: 7px;
+}
+.box-room-info > box:nth-child(4) > label {
+	margin-top: 3px;
+}
+
+.box-room-info > box:nth-child(3) > scrolledwindow > textview {
+    font-size: 14px;
+    font-weight: 300; 
+}
+.box-room-info > box:nth-child(3) > scrolledwindow > textview text {
+    color: #f5f5f5;
+}
+.box-room-info box:nth-child(4) > scrolledwindow {
+	border-radius: 5px;
+	background-color: #1b1b1b;
+	border: 1px solid #1b1b1b;
+}
+.box-room-info box:nth-child(4) > entry {
+	color: #919dc1;
+}
+
+.box-room-info srcollbar.hovering slider {
+    background-color: #8774e1;
+}
+.box-room-info scrollbar slider {
+    border-color: transparent;
+    background-color: rgba(135, 116, 225, 0.8);
+}
+.box-room-info  .hovering {
+    background-color: #242424;
+	border: none;
+}
+.box-room-info .dragging slider {
+	background-color: #8774e1;
+}
+
+/* Members list styles */
+
+.listbox_members row {
+    margin: 5px 5px 0 5px;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.listbox_members row:last-child {
+    margin-bottom: 5px;
+}
+.listbox_members row:hover {
+    background-color: #242424;
+}
+.listbox_members row:selected {
+    background-color: #8774e1;
+}
+.listbox_members row:selected label,
+.listbox_members row:selected:hover {
+    color: #f5f5f5;
+}
+.listbox_members row > label {
+    color: #919dc1;
+    font-size: 16px;
+}
+.listbox_members row:selected:hover {
+    background-color: rgba(134, 116, 225, 0.6);
+}
+.listbox_members row button:hover {
+    opacity: .5;
+}
+.listbox_members {
+	border-radius: 5px;
+	background-color: #1b1b1b;
+	border: 1px solid #1b1b1b;
+}
+.listbox_members label {
+	color: #919dc1;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+/* User info styles */
+
+.dialog_user_info {
+    background-color: #242424;
+}
+.dialog_user_info textview {
+    background-color: #242424;
+}
+
+.box_user_info {
+    color: #f5f5f5;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 22px 45px 45px 45px;
+}
+.box_user_info box label:first-child {
+	font-size: 16px;
+	color: #919dc1;
+	font-weight: 400;
+}
+.box_user_info > box:nth-child(1) > label,
+.box_user_info > box:nth-child(2) > label,
+.box_user_info > box:nth-child(3) > label {
+	margin-bottom: 7px;
+}
+.box_user_info > box:nth-child(3) > label {
+	margin-top: 3px;
+}
+.box_user_info > box:nth-child(3) > scrolledwindow > textview {
+    font-size: 14px;
+    font-weight: 300; 
+}
+.box_user_info > box:nth-child(3) > scrolledwindow > textview text {
+    color: #f5f5f5;
+}
+
+/* Room settings Dialog window styles */
+
+.box-room-settings {
+	margin: 12px 40px 0 40px;
+}
+.box-room-settings entry {
+    background-color: #1b1b1b;
+	border: 1px solid #242424;
+    color: #919dc1;
+    caret-color:#f5f5f5;
+	border-radius: 5px;
+    box-shadow: none;
+	padding: 0 8px;
+    font-size: 16px;
+    font-weight: 300;
+}
+.box-room-settings textview {
+    background-color:#1b1b1b;
+    border: 1px solid #242424;
+    border-radius: 5px;
+    box-shadow: none;
+    padding-top: 3px;
+    font-size: 16px;
+    font-weight: 300;
+}
+.box-room-settings textview text {
+    color: #919dc1;
+    caret-color:#f5f5f5;
+}
+
+.box-room-settings > box > box:first-child label,
+.box-room-settings > box > box:nth-child(2) label,
+.box-room-settings > box > box:nth-child(3) > label:first-child:not(scrolledwindow):not(.listbox_members) {
+	color: #f5f5f5;
+	margin-top: 15px;
+    margin-bottom: 7px;
+	font-size: 16px;
+    font-weight: 500;
+}
+.box-room-settings > box > box:nth-child(1) button:hover, 
+.box-room-settings > box > box:nth-child(2) button:hover {
+    background-color:#1b1b1b; 
+    border-radius: 15px;
+}
+
+.box-room-settings scrolledwindow {
+    background-color:#1b1b1b;
+    border: 1px solid #242424;
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.box-room-settings box srcollbar.hovering slider {
+    background-color: #8774e1;
+}
+.box-room-settings box scrollbar slider {
+    border-color: transparent;
+    background-color: rgba(135, 116, 225, 0.8);
+}
+.box-room-settings box .hovering {
+    background-color: #242424;
+	border: none;
+}
+.box-room-settings box .dragging slider {
+	background-color: #8774e1;
+}
+
+
+/* Dialog join to room, ban, clear history styles */
+.dialog_confirmation {
+    background-color: #242424;
+}
+.dialog_confirmation .dialog-vbox {
+    margin-top: 40px;
+    color: red; /*#f5f5f5;*/
+}
+.dialog_confirmation .dialog-vbox > box:first-child label:first-child {
+	font-size: 16px;
+	font-weight: 300;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 9px;
+    color: #f5f5f5;   /*#919dc1;*/
+}
+.dialog_confirmation .dialog-vbox > box:first-child label:last-child {
+	font-size: 18px;
+	font-weight: 500;
+}
+.dialog_confirmation .dialog-vbox > box:first-child {
+    margin-bottom: 9px;
+}

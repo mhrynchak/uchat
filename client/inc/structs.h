@@ -1,6 +1,3 @@
-//
-// Created by Максим Гринчак on 11/9/21.
-//
 #pragma once
 #include "client.h"
 #include "defines.h"
@@ -19,12 +16,11 @@
  * id: room id
  * room_name: name of room
  * customer: customer's login
- * customer_id: customer's id
+ * user_id: customer's id
  * date: creation date of room
  * desc: description of room
  * is_updated: flag that check is room has new messages
  * uploaded: count of uploaded messages
- * power: power that room used
  */
 typedef struct s_groom {
     GtkListBox *box_rooms;
@@ -38,12 +34,11 @@ typedef struct s_groom {
     guint64 id;
     char *room_name;
     char *customer;
-    guint64 customer_id;
+    guint64 user_id;
     guint64 date;
     char *desc;
     gboolean is_updated;
     gint uploaded;
-    gdouble power;
     gboolean select_all;
     gboolean select_own;
     gboolean select_another;
@@ -55,14 +50,12 @@ typedef struct s_groom {
  * ----------
  * row_msg: pointer to message GtkListBoxRow
  * label_text: pointer to GtkLabel with message content
- * label_power: pointer to label with message power
  * type: type of message (STICKER, FILE ...)
  * msg: text of message
  * login: login of sender
  * date: send date
  * room_id: room that contains this message
  * message_id: message id
- * power: power that message used
  * select_all: count of all selected messages
  * select_own: count of own selected messages
  * select_another: count of selected messages from another users
@@ -72,25 +65,13 @@ typedef struct s_gmsg {
     GtkListBoxRow *row_msg;
     GtkLabel *label_text;
     GtkLabel *label_power;
-    gint type;
+    gint msg_type;
     char *msg;
     char *login;
     guint64 date;
     guint64 room_id;
-    guint64 message_id;
-    gdouble power;
+    guint64 msg_id;
 }           t_gmsg;
-
-/* REQUEST_TYPE
- * ----------
- * All types of request in data transport protocol
- */
-typedef struct s_dtp {
-    char *str;
-    cJSON *json;
-    size_t len;
-    gint type;
-}               t_dtp;
 
 
 /* out: data output stream to server
@@ -114,8 +95,6 @@ typedef struct s_dtp {
  * css_prov: contain css-styles
  */
 typedef struct s_chat {
-    // int sockfd;
-    // int port;
     GDataOutputStream *out;
     GDataInputStream *in;
     GSocketConnection *conn;
@@ -123,17 +102,39 @@ typedef struct s_chat {
     char *auth_token;
     char *login;
     gchar *desc;
+    gchar *name;
     gint argc;
     char **argv;
     gsize id;
     t_groom *curr_room;
-    char *data;
+    gchar *data;
     gboolean upl_old_msgs;
     GtkBuilder *builder;
     gboolean valid;
-    void (*error_handler[ER_COUNT])(GtkBuilder *builder);
-    gboolean (*request_handler[RQ_COUNT])(t_dtp *dtp, struct s_chat *chat);                                              
+    void (*error_handler[ER_COUNT])(GtkBuilder *builder);  
     gboolean msg_placeholder;
     gboolean shift_hold;
     GtkCssProvider *css_prov;
 }               t_chat;
+
+/* Signal data
+ * ----------
+ * groom: t_groom for gpointer user_data
+ * chat: t_chat for gpointer user_data
+ * row_msg: GtkListBoxRow for gpointer user_data
+ */
+typedef struct s_signal_data {
+    t_groom *groom;
+    t_chat *chat;
+    GtkListBoxRow *row_msg;
+}               t_signal_data;
+
+/* Filter data
+ * ----------
+ * is_found_rooms: flag of found rooms
+ * search_name: contain search name of room
+ */
+typedef struct s_filter_data {
+    gboolean is_found_rooms;
+    gchar *search_name;
+}           t_filter_data;
